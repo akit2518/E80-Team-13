@@ -35,8 +35,8 @@ public:
 
 private:
   // set pressure sensor calibration slope and incercept below
-  const float depthCal_slope = 0.813
-  const float depthCal_intercept = -0.884;     // could be -99.4
+  const float depthCal_slope = 0.813;
+  const float depthCal_intercept = -0.884;  
 
 };
 
