@@ -27,10 +27,18 @@ void DepthControl::dive(z_state_t * state, int currentTime_in) {
   // You can access the desired depth from the wayPoints array at the index held in currentWayPoint
   // You can access the measured depth calculated in ZStateEstimator.cpp using state->z
   
-  //////////////////////////////////////////////////////////////////////
-  // write code here
-  //////////////////////////////////////////////////////////////////////
-  
+  depth_des = wayPoints[currentWayPoint];
+  depth = state->z;
+  depth_error = depth_des - depth;
+  uV = Kp * depth_error;
+
+  if (uV > 200){
+    uV = 200;
+  }
+
+  else if (uV < -200){
+    uV = -200;
+  }
   ///////////////////////////////////////////////////////////////////////
   // don't change code past this point
   ///////////////////////////////////////////////////////////////////////
